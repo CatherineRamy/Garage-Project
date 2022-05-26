@@ -3,14 +3,18 @@ package parking;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Screen {
+public class MyScreen {
+    
     private GarageRegulator modulator;
     private int nSlots;//number of slots of garage
     private int config_choice;
     private MySlots[] SlotsArray; // array of objects of type slots that stores all garage slots..
     Scanner input;
+    public MyScreen() {
+    }
     public void open(){};
     public void setUp(){
+        modulator = new GarageRegulator();
         System.out.print("enter the number of slots: ");
 		input = new Scanner(System.in);
         nSlots = input.nextInt();
@@ -64,7 +68,7 @@ public class Screen {
 	//	garage1.displayAvailableSlots();
     }
 
-    public void displayTotalIncome(){
+   public void displayTotalIncome(){
 		
     }
     public void displayTotalVehicles(){
@@ -73,5 +77,4 @@ public class Screen {
     public void out(){
 		
     }
-
 }
