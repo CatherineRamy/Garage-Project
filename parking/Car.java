@@ -12,8 +12,7 @@ public class Car implements Vehicle{
     private Date arrivalTime;
     private Date DepartureTime;
 
-    public Car(String modelName, String uniqueID, int modelYear, float vehicleWidth, float vehicleDepth,
-            String mySlot) {
+    public Car(String modelName, int modelYear ,String uniqueID, float vehicleWidth, float vehicleDepth,String mySlot) {
         this.modelName = modelName;
         this.modelYear = modelYear;
         this.vehicleDepth = vehicleDepth;

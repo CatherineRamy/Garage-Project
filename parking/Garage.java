@@ -11,7 +11,7 @@ public interface Garage {
 	public String getId();
 	public void setStatus(boolean status);
 	public boolean getStatus();
-	public void displayAvailableSlots();
+	public MySlots[] theAvailableSlots();
 	public int getOwnerChoice();
 	public int getCapacity();
 	public Slot getSlots(int index);

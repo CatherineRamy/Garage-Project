@@ -19,17 +19,29 @@ public class MyGarage implements Garage{
 		// garageSlots[0].setStatus(true); to try what will happen when true or false.
 	}
 
-	public void displayAvailableSlots() {
+	public MySlots[] theAvailableSlots() {
 		int counter = 0; /// counter to check if there are available slots..
+	
 		for (int i = 0; i < capacity; i++) {// loop to check the state of each slot and display the available ones..
 			if (!garageSlots[i].getStatus()) {
-				System.out.println(garageSlots[i].getwidth() + " " + garageSlots[i].getdepth() + " " + garageSlots[i].getId());
 				counter = counter + 1;
+			}
+
+		}
+		int totalAvailable=0;
+		MySlots [] availableSlots;
+		availableSlots = new MySlots[counter];
+		for (int i = 0; i < capacity; i++) {// loop to check the state of each slot and display the available ones..
+			if (!garageSlots[i].getStatus()) {
+				availableSlots[totalAvailable]=garageSlots[i];
+				totalAvailable++;
 			}
 		}
 		if (counter == 0) {/// displaing message to say that there are no available slots..
-			System.out.println("There is no available slots");
+			//System.out.println("There is no available slots");
+			return null;
 		}
+		return availableSlots;
 	}
 
 	public boolean isFull(Vehicle vehicle1) {// it returns true if all slots is unavailable ..
