@@ -1,7 +1,7 @@
 package parking;
 
 public interface Slot {
-	public void setData(float sW, float sD, String sId);
+	public void setData(float slotW, float slotD, String slotId);
 	public float getwidth();
 	public float getdepth();
 	public String getId();

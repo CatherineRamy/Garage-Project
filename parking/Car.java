@@ -2,7 +2,7 @@ package parking;
 
 import java.util.Date;
 
-public class Car implements Vehicle, Park, Slot {
+public class Car implements Vehicle{
     private String modelName;
     private String uniqueID;
     private int modelYear;
@@ -37,41 +37,7 @@ public class Car implements Vehicle, Park, Slot {
 
     ////////////////////////////////////the following are auto generated////////////////////////////////////////////////
 
-    @Override
-    public void setData(float sW, float sD, String sId) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public float getwidth() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public float getdepth() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public String getId() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public void setStatus(boolean status) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public boolean getStatus() {
-        // TODO Auto-generated method stub
-        return false;
-    }
+   
 
     @Override
     public void displayAvailableSlots() {
@@ -92,26 +58,12 @@ public class Car implements Vehicle, Park, Slot {
     }
 
     @Override
-    public Slots getSlots(int index) {
+    public MySlots getSlots(int index) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
-    public void parkIn(Vehicle veh) {
-        // TODO Auto-generated method stub
-        // return null;
-    }
 
-    @Override
-    public boolean isFull(Vehicle v) {
-        // TODO Auto-generated method stub
-        return false;
-    } 
 
-    @Override
-    public String chooseSlot(Vehicle v) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+
 }

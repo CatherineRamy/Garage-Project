@@ -1,29 +1,29 @@
 package parking;
 
-public class Slots implements Slot {
+public class MySlots implements Slot {
 	private float slotWidth;
 	private float slotDepth;
 	private boolean slotStatus;
 	private String slotId;
 	
-	public Slots()
+	public MySlots()
 	{
 		slotWidth=0;
 		slotDepth=0;
 		slotId="";
 	}
-	public Slots(float sW, float sD, String sId)
+	public MySlots(float slotW, float slotD, String _slotId)
 	{
-		slotWidth=sW;
-		slotDepth=sD;
-		slotId=sId;
+		slotWidth=slotW;
+		slotDepth=slotD;
+		slotId=_slotId;
 		/**slotStatus=true;*/
 	}
-	public void setData(float sW, float sD, String sId)
+	public void setData(float slotW, float slotD, String _slotId)
 	{
-		slotWidth=sW;
-		slotDepth=sD;
-		slotId=sId;
+		slotWidth=slotW;
+		slotDepth=slotD;
+		slotId=_slotId;
 	}
 	public float getwidth()
 	{return slotWidth;}

@@ -1,6 +1,6 @@
 package parking;
 
-public interface Park {
+public interface Garage {
 
 	public void parkIn(Vehicle veh);
 	  /** // private void setParkOutTime(Vehicle veh);
@@ -14,7 +14,7 @@ public interface Park {
 	public void displayAvailableSlots();
 	public int getOwnerChoice();
 	public int getCapacity();
-	public Slots getSlots(int index);
+	public Slot getSlots(int index);
 	public boolean isFull(Vehicle v);
 	public String chooseSlot(Vehicle v);
 }
