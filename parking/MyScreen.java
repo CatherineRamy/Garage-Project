@@ -6,9 +6,8 @@ import java.util.Scanner;
 public class MyScreen {
     
     private GarageRegulator modulator;
-    private int nSlots;             //number of slots of garage
+    private int nSlots;//number of slots of garage
     private int config_choice;
-    private MySlots[] SlotsArray; // array of objects of type slots that stores all garage slots..
     Scanner input;
     public MyScreen() {
     }
@@ -18,17 +17,17 @@ public class MyScreen {
         System.out.print("enter the number of slots: ");
 		input = new Scanner(System.in);
         nSlots = input.nextInt();
-		SlotsArray = new MySlots[nSlots];
+        modulator.creatArrOfSlots(nSlots);
 		System.out.println("enter the width, depth, ID of the slot");
 		for (int i = 0; i < nSlots; i++) {
 			float width = input.nextFloat();
 			float depth = input.nextFloat();
 			String Id = input.next();
-			SlotsArray[i] = new MySlots(width, depth, Id);
+            modulator.addSlotToArr( i, width, depth, Id);
 		}
-        modulator.createGarage(nSlots, SlotsArray, config_choice);
+        modulator.createGarage(nSlots, config_choice);
     }
-
+  
     public void setupCar()
     {
         System.out.print("enter vehicle model : ");
@@ -46,28 +45,21 @@ public class MyScreen {
         float vehicleDepth=input.nextFloat();
         
         modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth,"");
-        
     }
+
     public void chooseConfiguration(){
         System.out.print("choose one of the following configurations for parking (1) first come first (2) best fit: ");
 		config_choice = input.nextInt();
     }
     
     public void displayAvailableSlots(){
-        MySlots[] displayed;
         System.out.println("Available slots");
-        displayed = modulator.slotsAvailable();
-        for(int i=0; i<displayed.length; i++)
-        {
-            System.out.println(displayed[i].getwidth() + " " + displayed[i].getdepth() + " " + displayed[i].getId());
-           // System.out.println(modulator.slotsAvaliable[i])
+        for(int i=0; i<modulator.slotsAvailable().length; i++){
+            System.out.println(modulator.slotsAvailable()[i].getwidth() + " " + modulator.slotsAvailable()[i].getdepth() + " " + modulator.slotsAvailable()[i].getId());
         }
-
-		
-	//	garage1.displayAvailableSlots();
     }
 
-   public void displayTotalIncome(){
+    public void displayTotalIncome(){
 		
     }
     public void displayTotalVehicles(){

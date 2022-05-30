@@ -14,9 +14,7 @@ public class MyGarage implements Garage{
 		garageSlots = new MySlots[capacity];
 		for (int i = 0; i < capacity; i++) {
 			garageSlots[i] = new MySlots(s[i].getwidth(), s[i].getdepth(), s[i].getId());
-			garageSlots[i].setStatus(false);
 		}
-		// garageSlots[0].setStatus(true); to try what will happen when true or false.
 	}
 
 	public MySlots[] theAvailableSlots() {
