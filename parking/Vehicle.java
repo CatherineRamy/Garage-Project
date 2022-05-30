@@ -9,7 +9,9 @@ public interface Vehicle {
 	public int getCapacity();
 	public MySlots getSlots(int index);
 	public void setStartDate(Date arrivalDate);
+	public void setEndtDate(Date arrivalDate);
 	public Date getStartDate();
+	public Date getEndDate();
 	public float getVehicleDepth();
 	public float getVehicleWidth();
 }

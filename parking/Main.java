@@ -14,6 +14,9 @@ public class Main {
 		screen1.chooseConfiguration();	//it takes from the owner the type of configuration that the system will use during the parkin function..
 		screen1.setupCar();	// funtion that creates the park and sets its slots and info..
 		screen1.displayAvailableSlots();; //displaying IDs of the slots that don't have vehicles parking in it.. 
+		screen1.setupCar();	// funtion that creates the park and sets its slots and info..
+		screen1.displayAvailableSlots();; //displaying IDs of the slots that don't have vehicles parking in it.. 
+		screen1.displayParkOut();
 
 	}
 }

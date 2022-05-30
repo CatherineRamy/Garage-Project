@@ -3,14 +3,19 @@ package parking;
 import java.util.Date;
 import java.util.Arrays;
 import java.util.Collections;
+import static java.lang.Math.toIntExact;
 
 public class MyGarage implements Garage{
 	private int capacity, OwnerChoice;
 	private MySlots[] garageSlots;
+	private int vehicleCount;
+	private int totalIncome;
 
 	public MyGarage(int _capacity, MySlots[] s, int choice) {
 		capacity = _capacity;
 		OwnerChoice = choice;
+		vehicleCount=0;
+		totalIncome=0;
 		garageSlots = new MySlots[capacity];
 		for (int i = 0; i < capacity; i++) {
 			garageSlots[i] = new MySlots(s[i].getwidth(), s[i].getdepth(), s[i].getId());
@@ -119,13 +124,33 @@ public class MyGarage implements Garage{
 
 	public void parkIn(Vehicle vehicle1) {
 		if (!isFull(vehicle1)) {////there are still available slots in the garage...
+			vehicleCount++;
 			chooseSlot(vehicle1);// to assign a specific slot to the entered vehicle acording to its dimentions..
-			Date date = new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
-			vehicle1.setStartDate(date);
+			Date arrivalDate = new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
+			vehicle1.setStartDate(arrivalDate);
 		}else{System.out.println("sorry the grage is full!");}	//displaying message because the garage is already full and make the vehicle leave..
 
 	}
 
+	public String parkOut(Vehicle vehicle1) {
+		Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
+		vehicle1.setEndtDate(DepartureTime);
+		calcFees(vehicle1);
+		System.out.print("Fees depending on calculated seconds"+calcFees(vehicle1)+"\n");
+		return "hi";
+
+	}
+	public int calcFees(Vehicle vehicle1)
+	{
+
+		long diff;
+		diff = vehicle1.getEndDate().getTime()-vehicle1.getStartDate().getTime();
+		long difference_In_Hours= (diff/ (1000*60*60));
+		int fees=toIntExact(difference_In_Hours)*5;
+		totalIncome+=fees;
+
+         return fees;
+	}
 	public int getOwnerChoice() {
 		return OwnerChoice;
 	}

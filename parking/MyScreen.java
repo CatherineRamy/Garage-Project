@@ -44,7 +44,7 @@ public class MyScreen {
         float vehicleWidth=input.nextFloat();
         float vehicleDepth=input.nextFloat();
         
-        modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth,"");
+        modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
     }
 
     public void chooseConfiguration(){
@@ -67,5 +67,11 @@ public class MyScreen {
     }
     public void out(){
 		
+    }
+    public void displayParkOut()
+    {
+        System.out.print("far2 taw2eeet: ");
+        int y=input.nextInt();        
+        modulator.carParkOut();
     }
 }
