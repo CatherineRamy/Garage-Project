@@ -17,7 +17,7 @@ public class MySlots implements Slot {
 		slotWidth=slotW;
 		slotDepth=slotD;
 		slotId=_slotId;
-		/**slotStatus=true;*/
+		slotStatus=false;
 	}
 	public void setData(float slotW, float slotD, String _slotId)
 	{

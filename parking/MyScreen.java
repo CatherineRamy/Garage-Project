@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MyScreen {
     
     private GarageRegulator modulator;
-    private int nSlots;//number of slots of garage
+    private int nSlots;             //number of slots of garage
     private int config_choice;
     private MySlots[] SlotsArray; // array of objects of type slots that stores all garage slots..
     Scanner input;
@@ -25,26 +25,25 @@ public class MyScreen {
 			float depth = input.nextFloat();
 			String Id = input.next();
 			SlotsArray[i] = new MySlots(width, depth, Id);
-			SlotsArray[i].setStatus(false);
 		}
-        
         modulator.createGarage(nSlots, SlotsArray, config_choice);
     }
-  
+
     public void setupCar()
     {
-        String modelName = input.nextLine();             
-        System.out.print("enter vehicle model : "+modelName );    
+        System.out.print("enter vehicle model : ");
+        String modelName = input.next();               
 
+        System.out.print("enter vehicle model year: ");
         int modelYear=input.nextInt();
-        System.out.print("enter vehicle model year: " +modelYear);
+        
 
-        String uniqueID = input.nextLine();             
-        System.out.print("enter vehicle ID : "+uniqueID );  
-
+        System.out.print("enter vehicle ID : " );  
+        String uniqueID = input.next();             
+       
+        System.out.print("enter vehicle width, depth: ");
         float vehicleWidth=input.nextFloat();
         float vehicleDepth=input.nextFloat();
-        System.out.print("enter vehicle width, depth: " + vehicleWidth+ " " + vehicleDepth);
         
         modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth,"");
         
