@@ -2,6 +2,7 @@ package parking;
 
 import java.util.Date;
 import java.util.*;
+import java.util.Arrays;
 import static java.lang.Math.toIntExact;
 
 public class MyGarage implements Garage{
@@ -47,13 +48,12 @@ public class MyGarage implements Garage{
 		return availableSlots;
 	}
 
-	public boolean isFull(Vehicle vehicle1) {// it returns true if all slots is unavailable ..
+	public boolean isFull() {// it returns true if all slots is unavailable ..
 		for (int i = 0; i < capacity; i++) {// loop to check each slot availability..
 			if (!garageSlots[i].getStatus()) {// the get function returns true if the slot have a vehicle parking in it..
 				return false;//returning false if at least one available slot is found..
 			}
 		}
-		System.out.println(" no available slots");
 		return true;// it returns true when all slots bhave vehicles parking in it..
 	}
 
@@ -123,9 +123,9 @@ public class MyGarage implements Garage{
 	}
 
 	public void parkIn(Vehicle vehicle1) {
-		if (!isFull(vehicle1)) {////there are still available slots in the garage...
+		if (!isFull()) {////there are still available slots in the garage...
 			vehicleCount++;
-			chooseSlot(vehicle1);// to assign a specific slot to the entered vehicle acording to its dimentions..
+			vehicle1.setMySlot(chooseSlot(vehicle1));// to assign a specific slot to the entered vehicle acording to its dimentions..
 			Date arrivalDate = new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
 			vehicle1.setStartDate(arrivalDate);
 			garageVehicles.add(vehicle1);
@@ -136,16 +136,19 @@ public class MyGarage implements Garage{
 	}
 
 	public int parkOut(String vehicleID) {
-		Vehicle vehicle1;
-		vehicle1=new Car();
 		boolean found=false;
 		for(int i=0;i<garageVehicles.size();i++){
 			if(garageVehicles.get(i).getUniqueId().equals(vehicleID)){
-				vehicle1=garageVehicles.get(i);
 				Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
-				vehicle1.setEndtDate(DepartureTime);
-				int vehicleFees = calcFees(vehicle1);
+				garageVehicles.get(i).setEndtDate(DepartureTime);
+				int vehicleFees = calcFees(garageVehicles.get(i));
 				found=true;
+				for(int j=0;j<capacity;j++){
+					if(garageSlots[j].getId() == garageVehicles.get(i).getMySlot());
+					{
+						garageSlots[j].setStatus(false);
+					}
+				}
 				return vehicleFees;
 			}
 		}

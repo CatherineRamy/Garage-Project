@@ -14,4 +14,6 @@ public interface Vehicle {
 	public float getVehicleDepth();
 	public float getVehicleWidth();
 	public String getUniqueId();
+	public String getMySlot();
+	public void setMySlot(String slotName);
 }

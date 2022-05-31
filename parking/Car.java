@@ -85,4 +85,15 @@ public class Car implements Vehicle{
     public String getUniqueId() {
         return uniqueID;
     }
+
+    @Override
+    public String getMySlot() {
+        return mySlot;
+    }
+
+    @Override
+    public void setMySlot(String slotName) {
+        mySlot=slotName;
+        
+    }
 }

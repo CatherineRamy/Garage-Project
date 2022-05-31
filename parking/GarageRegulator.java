@@ -13,7 +13,6 @@ public class GarageRegulator {
     public void createVehicle(String modelName, int modelYear,String uniqueID, float vehicleWidth, float vehicleDepth ){
         car1 = new Car(modelName, modelYear,uniqueID, vehicleWidth, vehicleDepth);
 		garage1.parkIn(car1);
-        System.out.println(car1.getUniqueId()+"\n");
     }
 
     public MySlots[] slotsAvailable(){
@@ -41,6 +40,10 @@ public class GarageRegulator {
     public int totalVehicle(){
         int i = garage1.calculateTotalVehicle();
         return i;
+    }
+    public boolean garageStatus()
+    {
+        return garage1.isFull();
     }
 
 }

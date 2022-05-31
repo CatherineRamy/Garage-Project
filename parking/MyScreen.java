@@ -31,20 +31,24 @@ public class MyScreen {
     }
   
     public void setupCar(){
-        System.out.print("enter vehicle model : ");
-        String modelName = input.next();               
+        if(modulator.garageStatus())
+        {System.out.println("sorry the grage is totally full");}
+        else{
+            System.out.print("enter vehicle model : ");
+            String modelName = input.next();               
 
-        System.out.print("enter vehicle model year: ");
-        int modelYear=input.nextInt();
+            System.out.print("enter vehicle model year: ");
+            int modelYear=input.nextInt();
+            
+            System.out.print("enter vehicle ID: " );  
+            String uniqueID = input.next();             
         
-        System.out.print("enter vehicle ID: " );  
-        String uniqueID = input.next();             
-       
-        System.out.print("enter vehicle width, depth: ");
-        float vehicleWidth=input.nextFloat();
-        float vehicleDepth=input.nextFloat();
-        
-        modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
+            System.out.print("enter vehicle width, depth: ");
+            float vehicleWidth=input.nextFloat();
+            float vehicleDepth=input.nextFloat();
+            
+            modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
+        }
     }
 
     public void chooseConfiguration(){
@@ -85,14 +89,11 @@ public class MyScreen {
     }
     public void menu()
     {
-        System.out.println("1- choose garage configuration ");
-        System.out.println("2- setup garage slots ");
-        System.out.println("3- parkin ");
-        System.out.println("4- parkout ");
-        System.out.println("5- see garage available slots");
-        System.out.println("6- see total income ");
-        System.out.println("7- total number of cars used the garage "); 
-        System.out.println("8- exit (all data including garage setup will be lost) ");
+        System.out.println("1- parkin ");
+        System.out.println("2- parkout ");
+        System.out.println("3- see garage available slots");
+        System.out.println("4- see total income ");
+        System.out.println("5- total number of cars used the garage "); 
     }
     public void userChoice()
     {
