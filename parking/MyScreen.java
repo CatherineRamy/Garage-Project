@@ -10,13 +10,11 @@ public class MyScreen {
     private int funChoice;
     public Scanner input= new Scanner(System.in);
    
-    
     public MyScreen() {
         modulator = new GarageRegulator();
     }
     public void open(){
     }
-
     public void setUp(){
         System.out.print("enter the number of slots: ");
 		
@@ -93,15 +91,18 @@ public class MyScreen {
         System.out.println("4- parkout ");
         System.out.println("5- see garage available slots");
         System.out.println("6- see total income ");
-        System.out.println("7- total number of cars used the garage ");
-      
-    
+        System.out.println("7- total number of cars used the garage "); 
+        System.out.println("8- exit (all data including garage setup will be lost) ");
     }
     public void userChoice()
     {
-        System.out.println("choose a number from 1 to 7");
+        System.out.println("choose a number from 1 to 8");
         funChoice = input.nextInt();
      
+    }
+    public int getFunChoice()
+    {
+        return funChoice;
     }
 
 }
