@@ -10,9 +10,11 @@ public class GarageRegulator {
         garage1 = new MyGarage(nSlots, SlotsArray, config_choice);
     }
 
-    public void createVehicle(String modelName, int modelYear,String uniqueID, float vehicleWidth, float vehicleDepth ){
+    public String createVehicle(String modelName, int modelYear,String uniqueID, float vehicleWidth, float vehicleDepth ){
+        String ID="";
         car1 = new Car(modelName, modelYear,uniqueID, vehicleWidth, vehicleDepth);
-		garage1.parkIn(car1);
+		ID=garage1.parkIn(car1);
+        return ID;
     }
 
     public MySlots[] slotsAvailable(){

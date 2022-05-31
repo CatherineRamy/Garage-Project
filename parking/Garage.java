@@ -1,7 +1,7 @@
 package parking;
 
 public interface Garage {
-	public void parkIn(Vehicle veh);
+	public String parkIn(Vehicle veh);
 	public int parkOut(String vehicleId);
 	public boolean getStatus();
 	public MySlots[] theAvailableSlots();

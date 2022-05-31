@@ -61,7 +61,6 @@ public class MyGarage implements Garage {
 
 	public String chooseSlot(Vehicle vehicle1) {
 		String ID = "";
-		System.out.println(OwnerChoice);
 		if (OwnerChoice == 1) { // the configuration of first come first in..
 			myconfig=new FirstCome();
 			ID=myconfig.parking(this,garageSlots ,vehicle1);
@@ -83,20 +82,18 @@ public class MyGarage implements Garage {
 		}
 	}
 
-	public void parkIn(Vehicle vehicle1) {
+	public String parkIn(Vehicle vehicle1) {
+		String ID="";
 		if (!isFull()) {//// there are still available slots in the garage...
 			vehicleCount++;
-			vehicle1.setMySlot(chooseSlot(vehicle1));// to assign a specific slot to the entered vehicle acording to its
+			vehicle1.setMySlot(ID=chooseSlot(vehicle1));// to assign a specific slot to the entered vehicle acording to its
 														// dimentions..
 			Date arrivalDate = new Date();// Date is a built in class in java that returns the date and we will use it
 											// to save system's time..
 			vehicle1.setStartDate(arrivalDate);
 			garageVehicles.add(vehicle1);
-		} else {
-			System.out.println("sorry the grage is full!");
-		} // displaying message because the garage is already full and make the vehicle
-			// leave..
-
+		}
+		return ID;
 	}
 
 	public int parkOut(String vehicleID) {

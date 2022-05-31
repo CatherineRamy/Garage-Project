@@ -46,7 +46,7 @@ public class MyScreen {
   
     public void setupCar(){
         if(modulator.garageStatus())
-        {System.out.println("sorry the grage is totally full");}
+        {System.out.println("\nsorry the grage is totally full\n");}
         else{
             System.out.print("enter vehicle model : ");
             String modelName = input.next();               
@@ -60,13 +60,12 @@ public class MyScreen {
             System.out.print("enter vehicle width, depth: ");
             float vehicleWidth=input.nextFloat();
             float vehicleDepth=input.nextFloat();
-            
-            modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
+            System.out.println("\n\nGo to Slot '"+modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth)+"'\n\n");
         }
     }
 
     public void chooseConfiguration(){
-        System.out.print("choose one of the following configurations for parking (1) first come first (2) best fit: ");
+        System.out.print("\nchoose one of the following configurations for parking (1) first come first (2) best fit: ");
 		config_choice = input.nextInt();
     }
     
@@ -76,18 +75,18 @@ public class MyScreen {
             System.out.println("no available Slots\n");
         }
         else{
-            System.out.println("Available slots");
+            System.out.println("\n\nAvailable slots\n");
             for(int i=0; i<modulator.slotsAvailable().length; i++){
-                System.out.println(modulator.slotsAvailable()[i].getwidth() + " " + modulator.slotsAvailable()[i].getdepth() + " " + modulator.slotsAvailable()[i].getId());
+                System.out.println(modulator.slotsAvailable()[i].getwidth() + " " + modulator.slotsAvailable()[i].getdepth() + " " + modulator.slotsAvailable()[i].getId()+"\n\n");
             }
         }
     }
 
     public void displayTotalIncome(){
-        System.out.println("total income= " +modulator.totalIncome());		
+        System.out.println("\n\ntotal income= " +modulator.totalIncome()+"\n\n");		
     }
     public void displayTotalVehicles(){
-        System.out.println("total vehicle= " +modulator.totalVehicle());				
+        System.out.println("\n\ntotal vehicles= " +modulator.totalVehicle()+"\n\n");				
     }
 
     public void displayParkOut(){ 
@@ -95,10 +94,10 @@ public class MyScreen {
         String Id = input.next();  
         int i=modulator.carParkOut(Id);
         if(i==0){
-            System.out.println("this car is not in the garage");
+            System.out.println("\nthis car is not in the garage\n");
             return;
         } 
-        System.out.println("\n\nFees depending on calculated hours " +i+"\n\n");
+        System.out.println("\n\nFees depending on calculated hours: " +i+" EGP\n\n");
     }
     
     public int getFunChoice()
