@@ -146,7 +146,11 @@ public class MyGarage implements Garage{
 		long diff;
 		diff = vehicle1.getEndDate().getTime()-vehicle1.getStartDate().getTime();
 		long difference_In_Hours= (diff/ (1000*60*60));
-		int fees=toIntExact(difference_In_Hours)*5;
+		int fees=toIntExact(difference_In_Hours);
+		if(diff%(1000*60*60) != 0){
+			fees++;
+		}
+		fees*=5;
 		totalIncome+=fees;
         return fees;
 	}

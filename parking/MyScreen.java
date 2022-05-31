@@ -66,8 +66,10 @@ public class MyScreen {
         System.out.println("total vehicle= " +modulator.totalVehicle());				
     }
 
-    public void displayParkOut(){       
-        System.out.println("Fees depending on calculated seconds " +modulator.carParkOut());
+    public void displayParkOut(){ 
+        System.out.print("enter vehicle ID: " );  
+        String hi = input.next();      
+        System.out.println("Fees depending on calculated hours " +modulator.carParkOut());
     }
 
 }
