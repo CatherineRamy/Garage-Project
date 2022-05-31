@@ -13,6 +13,7 @@ public class GarageRegulator {
     public void createVehicle(String modelName, int modelYear,String uniqueID, float vehicleWidth, float vehicleDepth ){
         car1 = new Car(modelName, modelYear,uniqueID, vehicleWidth, vehicleDepth);
 		garage1.parkIn(car1);
+        System.out.println(car1.getUniqueId()+"\n");
     }
 
     public MySlots[] slotsAvailable(){
@@ -27,8 +28,8 @@ public class GarageRegulator {
         SlotsArray[index] = new MySlots(_sw, _sd, _sid);
     }
 
-    public int carParkOut(){
-        int i = garage1.parkOut(car1);
+    public int carParkOut(String _id){
+        int i = garage1.parkOut(_id);
         return i;
     }
 

@@ -53,9 +53,15 @@ public class MyScreen {
     }
     
     public void displayAvailableSlots(){
-        System.out.println("Available slots");
-        for(int i=0; i<modulator.slotsAvailable().length; i++){
-            System.out.println(modulator.slotsAvailable()[i].getwidth() + " " + modulator.slotsAvailable()[i].getdepth() + " " + modulator.slotsAvailable()[i].getId());
+        if(modulator.slotsAvailable()==null)
+        {
+            System.out.println("no available Slots\n");
+        }
+        else{
+            System.out.println("Available slots");
+            for(int i=0; i<modulator.slotsAvailable().length; i++){
+                System.out.println(modulator.slotsAvailable()[i].getwidth() + " " + modulator.slotsAvailable()[i].getdepth() + " " + modulator.slotsAvailable()[i].getId());
+            }
         }
     }
 
@@ -67,9 +73,9 @@ public class MyScreen {
     }
 
     public void displayParkOut(){ 
-        System.out.print("enter vehicle ID: " );  
-        String hi = input.next();      
-        System.out.println("Fees depending on calculated hours " +modulator.carParkOut());
+        System.out.print("enter your vehicle ID that you want to park out: " );  
+        String Id = input.next();      
+        System.out.println("Fees depending on calculated hours " +modulator.carParkOut(Id));
     }
 
 }

@@ -3,7 +3,7 @@ package parking;
 public interface Garage {
 	public void parkIn(Vehicle veh);
 	//private void setParkOutTime(Vehicle veh);
-	public int parkOut(Vehicle veh);
+	public int parkOut(String vehicleId);
 	public void setData(float sW, float sD, String sId);
 	public float getwidth();
 	public float getdepth();

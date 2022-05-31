@@ -13,4 +13,5 @@ public interface Vehicle {
 	public Date getEndDate();
 	public float getVehicleDepth();
 	public float getVehicleWidth();
+	public String getUniqueId();
 }

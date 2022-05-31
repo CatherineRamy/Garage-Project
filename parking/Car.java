@@ -13,6 +13,8 @@ public class Car implements Vehicle{
     private Date arrivalTime;
     private Date DepartureTime;
 
+    public Car(){}
+
     public Car(String modelName, int modelYear ,String uniqueID, float vehicleWidth, float vehicleDepth) {
         this.modelName = modelName;
         this.modelYear = modelYear;
@@ -77,5 +79,10 @@ public class Car implements Vehicle{
     public MySlots getSlots(int index) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public String getUniqueId() {
+        return uniqueID;
     }
 }

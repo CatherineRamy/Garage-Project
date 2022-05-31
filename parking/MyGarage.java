@@ -1,13 +1,13 @@
 package parking;
 
 import java.util.Date;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 import static java.lang.Math.toIntExact;
 
 public class MyGarage implements Garage{
 	private int capacity, OwnerChoice;
 	private MySlots[] garageSlots;
+	private Vector<Vehicle> garageVehicles = new Vector<Vehicle>();
 	private int vehicleCount;
 	private int totalIncome;
 
@@ -128,17 +128,25 @@ public class MyGarage implements Garage{
 			chooseSlot(vehicle1);// to assign a specific slot to the entered vehicle acording to its dimentions..
 			Date arrivalDate = new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
 			vehicle1.setStartDate(arrivalDate);
+			garageVehicles.add(vehicle1);
 		}else{
 			System.out.println("sorry the grage is full!");
 		}	//displaying message because the garage is already full and make the vehicle leave..
 
 	}
 
-	public int parkOut(Vehicle vehicle1) {
+	public int parkOut(String vehicleID) {
+		Vehicle vehicle1;
+		vehicle1=new Car();
+		for(int i=0;i<garageVehicles.size();i++){
+			if(garageVehicles.get(i).getUniqueId().equals(vehicleID)){
+				vehicle1=garageVehicles.get(i);
+				break;
+			}
+		}
 		Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
 		vehicle1.setEndtDate(DepartureTime);
 		int i = calcFees(vehicle1);
-		//System.out.print("Fees depending on calculated seconds"+calcFees(vehicle1)+"\n");
 		return i;
 	}
 
