@@ -35,14 +35,15 @@ public class GarageRegulator {
     }
 
     public int totalIncome(){
-        int i = garage1.calculateTotalIncome();
+        int i = garage1.getTotalIncome();
         return i;
     }
 
     public int totalVehicle(){
-        int i = garage1.calculateTotalVehicle();
+        int i = garage1.getTotalVehicle();
         return i;
     }
+    
     public boolean garageStatus()
     {
         return garage1.isFull();

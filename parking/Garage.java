@@ -11,7 +11,6 @@ public interface Garage {
 	public void setSlots(int index,MySlots slot);
 	public boolean isFull();
 	public String chooseSlot(Vehicle v);
-	public int calcFees(Vehicle veh);
-	public int calculateTotalVehicle();
-	public int calculateTotalIncome();
+	public int getTotalVehicle();
+	public int getTotalIncome();
 }
