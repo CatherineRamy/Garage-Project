@@ -15,6 +15,20 @@ public class MyScreen {
     }
     public void open(){
     }
+
+    public void menu(){
+        System.out.println("1- parkin ");
+        System.out.println("2- parkout ");
+        System.out.println("3- see garage available slots");
+        System.out.println("4- see total income ");
+        System.out.println("5- total number of cars used the garage "); 
+    }
+    
+    public void userChoice(){
+        System.out.println("choose a number from 1 to 5");
+        funChoice = input.nextInt();
+     
+    }
     public void setUp(){
         System.out.print("enter the number of slots: ");
 		
@@ -86,20 +100,7 @@ public class MyScreen {
         } 
         System.out.println("\n\nFees depending on calculated hours " +i+"\n\n");
     }
-    public void menu()
-    {
-        System.out.println("1- parkin ");
-        System.out.println("2- parkout ");
-        System.out.println("3- see garage available slots");
-        System.out.println("4- see total income ");
-        System.out.println("5- total number of cars used the garage "); 
-    }
-    public void userChoice()
-    {
-        System.out.println("choose a number from 1 to 8");
-        funChoice = input.nextInt();
-     
-    }
+    
     public int getFunChoice()
     {
         return funChoice;

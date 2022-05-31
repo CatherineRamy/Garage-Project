@@ -2,13 +2,7 @@ package parking;
 
 public interface Garage {
 	public void parkIn(Vehicle veh);
-	//private void setParkOutTime(Vehicle veh);
 	public int parkOut(String vehicleId);
-	public void setData(float sW, float sD, String sId);
-	public float getwidth();
-	public float getdepth();
-	public String getId();
-	public void setStatus(boolean status);
 	public boolean getStatus();
 	public MySlots[] theAvailableSlots();
 	public int getOwnerChoice();
@@ -19,5 +13,4 @@ public interface Garage {
 	public int calcFees(Vehicle veh);
 	public int calculateTotalVehicle();
 	public int calculateTotalIncome();
-
 }

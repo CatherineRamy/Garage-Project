@@ -194,48 +194,21 @@ public class MyGarage implements Garage {
 		return vehicleCount;
 	}
 
-	public void setData(float slotW, float slotD, String slotId) {
-		/** TODO Auto-generated method stub */
-
-	}
-
 	@Override
 	public MySlots getSlots(int index) {
 		return garageSlots[index];
 	}
 
 	@Override
-	public float getwidth() {
-		/** TODO Auto-generated method stub */
-		return 0;
+	public boolean getStatus() {
+		return false;
 	}
 
-	@Override
-	public float getdepth() {
-		/** TODO Auto-generated method stub */
-		return 0;
-	}
-
-	@Override
-	public String getId() {
-		/** TODO Auto-generated method stub */
-		return null;
-	}
 
 	public int getCapacity() {
 		return capacity;
 	}
 
-	@Override
-	public void setStatus(boolean status) {
-		/** TODO Auto-generated method stub */
-
-	}
-
-	@Override
-	public boolean getStatus() {
-		/** TODO Auto-generated method stub */
-		return false;
-	}
+	
 
 }
