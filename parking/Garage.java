@@ -19,4 +19,5 @@ public interface Garage {
 	public int calcFees(Vehicle veh);
 	public int calculateTotalVehicle();
 	public int calculateTotalIncome();
+
 }

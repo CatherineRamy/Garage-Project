@@ -2,7 +2,7 @@ package parking;
 
 import java.util.Date;
 import java.util.*;
-import java.util.Arrays;
+
 import static java.lang.Math.toIntExact;
 
 public class MyGarage implements Garage {
@@ -150,21 +150,23 @@ public class MyGarage implements Garage {
 	}
 
 	public int parkOut(String vehicleID) {
+		int vehicleFees = 0;
 		for (int i = 0; i < garageVehicles.size(); i++) {
 			if (garageVehicles.get(i).getUniqueId().equals(vehicleID)) {
 				Date DepartureTime = new Date();// Date is a built in class in java that returns the date and we will use it to save system's time..
 				garageVehicles.get(i).setEndtDate(DepartureTime);
-				int vehicleFees = calcFees(garageVehicles.get(i));
+				vehicleFees = calcFees(garageVehicles.get(i));
 				for (int j = 0; j < capacity; j++) {
 					if (garageSlots[j].getId().equals(garageVehicles.get(i).getMySlot()))
 					{
 						garageSlots[j].setStatus(false);
 					}
 				}
-				return vehicleFees;
+				garageVehicles.remove(i);
+				break;
 			}
 		}
-		return 0;
+		return vehicleFees;
 	}
 
 	public int calcFees(Vehicle vehicle1) {

@@ -77,15 +77,14 @@ public class MyScreen {
     }
 
     public void displayParkOut(){ 
-        
         System.out.print("enter your vehicle ID that you want to park out: " );  
         String Id = input.next();  
-        if(modulator.carParkOut(Id)==0)   
-        {
+        int i=modulator.carParkOut(Id);
+        if(i==0){
             System.out.println("this car is not in the garage");
             return;
         } 
-        System.out.println("Fees depending on calculated hours " +modulator.carParkOut(Id));
+        System.out.println("\n\nFees depending on calculated hours " +i+"\n\n");
     }
     public void menu()
     {
