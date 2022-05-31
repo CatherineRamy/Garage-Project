@@ -11,6 +11,7 @@ public class MyGarage implements Garage {
 	private Vector<Vehicle> garageVehicles = new Vector<Vehicle>();
 	private int vehicleCount;
 	private int totalIncome;
+	private Configuration myconfig;
 
 	public MyGarage(int _capacity, MySlots[] s, int choice) {
 		capacity = _capacity;
@@ -60,68 +61,17 @@ public class MyGarage implements Garage {
 
 	public String chooseSlot(Vehicle vehicle1) {
 		String ID = "";
+		System.out.println(OwnerChoice);
 		if (OwnerChoice == 1) { // the configuration of first come first in..
-			for (int i = 0; i < capacity; i++) {// loop to get first available and suitable slot
-				if (!garageSlots[i].getStatus())// this means that the slot is empty
-				{
-					if (garageSlots[i].getwidth() >= vehicle1.getVehicleWidth()
-							&& garageSlots[i].getdepth() >= vehicle1.getVehicleDepth()) {// to check if the dimentions
-																							// of slot suitable for the
-																							// entering vehicle..
-						garageSlots[i].setStatus(true);
-						ID = garageSlots[i].getId();// set the returning string id of the slot thst is assigned to the
-													// vehicle..
-						break;// it exit the loop when the vehicle is assigned successfuly to a slot..
-					}
+			myconfig=new FirstCome();
+			ID=myconfig.parking(this,garageSlots ,vehicle1);
+		}
+		else if (OwnerChoice==2) {
+			myconfig=new BestFit();
+			ID=myconfig.parking(this,garageSlots, vehicle1);
 
-				}
-			}
-		} else {
 			// the configuration of best fit
-			for (int i = 0; i < capacity; i++) {// sorting function to sort the slots according to thier width value..
-				for (int j = i + 1; j < capacity; j++) {
-					MySlots temp;
-					if (garageSlots[j].getwidth() < garageSlots[i].getwidth()) {
-						temp = garageSlots[i];
-						garageSlots[i] = garageSlots[j];
-						garageSlots[j] = temp;
-					}
-				}
-			} // end of the width-based sort
-				///// the following is another loop to re sort the sorted array of slots
-				// accourding to thier depth that have same width value...
-			int b = 0, i = 0;
-			while (b < capacity - 1) {
-				MySlots tmp = garageSlots[b];
-				while (garageSlots[b].getwidth() == tmp.getwidth() && b < capacity - 1) {
-					b++;
-				}
-				for (; i < b; i++) {
-					for (int j = i + 1; j < b; j++) {
-						MySlots temp;
-						if (garageSlots[j].getdepth() < garageSlots[i].getdepth()) {
-							temp = garageSlots[i];
-							garageSlots[i] = garageSlots[j];
-							garageSlots[j] = temp;
-						}
-					}
-				}
-			}
-			for (int k = 0; k < capacity; k++) {
-				if (!garageSlots[k].getStatus())// this means that the slot is empty
-				{
-					if (garageSlots[k].getwidth() >= vehicle1.getVehicleWidth()
-							&& garageSlots[k].getdepth() >= vehicle1.getVehicleDepth()) {// to check if the dimentions
-																							// of slot suitable for the
-																							// entering vehicle..
-						garageSlots[k].setStatus(true);
-						ID = garageSlots[k].getId();// set the returning string id of the slot thst is assigned to the
-													// vehicle..
-						break;// it exit the loop when the vehicle is assigned successfuly to a slot..
-					}
-
-				}
-			}
+			
 		}
 		if (ID == "") {
 			System.out.println("sorry, no avilable slots for your car dimension");
@@ -207,6 +157,12 @@ public class MyGarage implements Garage {
 
 	public int getCapacity() {
 		return capacity;
+	}
+
+	@Override
+	public void setSlots(int index,MySlots slot) {
+		
+		garageSlots[index]=slot;
 	}
 
 	

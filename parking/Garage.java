@@ -7,7 +7,8 @@ public interface Garage {
 	public MySlots[] theAvailableSlots();
 	public int getOwnerChoice();
 	public int getCapacity();
-	public Slot getSlots(int index);
+	public MySlots getSlots(int index);
+	public void setSlots(int index,MySlots slot);
 	public boolean isFull();
 	public String chooseSlot(Vehicle v);
 	public int calcFees(Vehicle veh);
