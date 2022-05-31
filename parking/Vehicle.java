@@ -3,7 +3,6 @@ package parking;
 import java.util.Date;
 
 public interface Vehicle {
-	
 	public void displayAvailableSlots();
 	public int getOwnerChoice();
 	public int getCapacity();

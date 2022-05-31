@@ -1,3 +1,4 @@
+//entity class 
 package parking;
 
 import java.util.Date;
@@ -15,6 +16,21 @@ public class Car implements Vehicle{
     public Car(String modelName, int modelYear ,String uniqueID, float vehicleWidth, float vehicleDepth) {
         this.modelName = modelName;
         this.modelYear = modelYear;
+        this.uniqueID = uniqueID;
+        this.vehicleDepth = vehicleDepth;
+        this.vehicleWidth = vehicleWidth;
+        this.mySlot = "";
+    }
+
+    public Car(String modelName, int modelYear ,String uniqueID) {
+        this.modelName = modelName;
+        this.modelYear = modelYear;
+        this.uniqueID = uniqueID;
+        this.mySlot = "";
+    }
+
+    //contractor with dimensions that make it flexible for the user if he doesn't have more information about his vehicle
+    public Car(float vehicleWidth, float vehicleDepth) {
         this.vehicleDepth = vehicleDepth;
         this.vehicleWidth = vehicleWidth;
         this.mySlot = "";
@@ -62,8 +78,4 @@ public class Car implements Vehicle{
         // TODO Auto-generated method stub
         return null;
     }
-
-
-
-
 }

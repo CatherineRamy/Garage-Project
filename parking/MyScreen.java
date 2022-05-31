@@ -1,19 +1,21 @@
+//Boundary class 
 package parking;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class MyScreen {
-    
-    private GarageRegulator modulator;
+    private GarageRegulator modulator; //object from the controller class 
     private int nSlots;//number of slots of garage
     private int config_choice;
-    Scanner input;
+    private Scanner input;
+    
     public MyScreen() {
-    }
-    public void open(){};
-    public void setUp(){
         modulator = new GarageRegulator();
+    }
+    public void open(){
+    }
+
+    public void setUp(){
         System.out.print("enter the number of slots: ");
 		input = new Scanner(System.in);
         nSlots = input.nextInt();
@@ -28,16 +30,14 @@ public class MyScreen {
         modulator.createGarage(nSlots, config_choice);
     }
   
-    public void setupCar()
-    {
+    public void setupCar(){
         System.out.print("enter vehicle model : ");
         String modelName = input.next();               
 
         System.out.print("enter vehicle model year: ");
         int modelYear=input.nextInt();
         
-
-        System.out.print("enter vehicle ID : " );  
+        System.out.print("enter vehicle ID: " );  
         String uniqueID = input.next();             
        
         System.out.print("enter vehicle width, depth: ");
@@ -60,18 +60,14 @@ public class MyScreen {
     }
 
     public void displayTotalIncome(){
-		
+        System.out.println("total income= " +modulator.totalIncome());		
     }
     public void displayTotalVehicles(){
-		
+        System.out.println("total vehicle= " +modulator.totalVehicle());				
     }
-    public void out(){
-		
+
+    public void displayParkOut(){       
+        System.out.println("Fees depending on calculated seconds " +modulator.carParkOut());
     }
-    public void displayParkOut()
-    {
-        System.out.print("far2 taw2eeet: ");
-        int y=input.nextInt();        
-        modulator.carParkOut();
-    }
+
 }

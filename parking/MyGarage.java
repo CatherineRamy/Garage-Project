@@ -128,32 +128,40 @@ public class MyGarage implements Garage{
 			chooseSlot(vehicle1);// to assign a specific slot to the entered vehicle acording to its dimentions..
 			Date arrivalDate = new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
 			vehicle1.setStartDate(arrivalDate);
-		}else{System.out.println("sorry the grage is full!");}	//displaying message because the garage is already full and make the vehicle leave..
+		}else{
+			System.out.println("sorry the grage is full!");
+		}	//displaying message because the garage is already full and make the vehicle leave..
 
 	}
 
-	public String parkOut(Vehicle vehicle1) {
+	public int parkOut(Vehicle vehicle1) {
 		Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
 		vehicle1.setEndtDate(DepartureTime);
-		calcFees(vehicle1);
-		System.out.print("Fees depending on calculated seconds"+calcFees(vehicle1)+"\n");
-		return "hi";
-
+		int i = calcFees(vehicle1);
+		//System.out.print("Fees depending on calculated seconds"+calcFees(vehicle1)+"\n");
+		return i;
 	}
-	public int calcFees(Vehicle vehicle1)
-	{
 
+	public int calcFees(Vehicle vehicle1){
 		long diff;
 		diff = vehicle1.getEndDate().getTime()-vehicle1.getStartDate().getTime();
 		long difference_In_Hours= (diff/ (1000*60*60));
 		int fees=toIntExact(difference_In_Hours)*5;
 		totalIncome+=fees;
-
-         return fees;
+        return fees;
 	}
+
 	public int getOwnerChoice() {
 		return OwnerChoice;
 	}
+
+	public int calculateTotalIncome(){
+		return totalIncome;
+	} 
+
+	public int calculateTotalVehicle(){
+		return vehicleCount;
+	} 
 
 	public void setData(float slotW, float slotD, String slotId) {
 		/** TODO Auto-generated method stub */
