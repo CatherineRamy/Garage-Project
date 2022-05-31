@@ -60,7 +60,13 @@ public class MyScreen {
             System.out.print("enter vehicle width, depth: ");
             float vehicleWidth=input.nextFloat();
             float vehicleDepth=input.nextFloat();
-            System.out.println("\n\nGo to Slot '"+modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth)+"'\n\n");
+            String ID=modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
+            if(ID!="")
+            {
+                System.out.println("\n\nGo to Slot '"+ID+"'\n\n");
+            }
+            else{
+                System.out.println("\n\nSorry! The garage has no available slots for your car\n\n");}
         }
     }
 

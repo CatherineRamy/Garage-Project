@@ -18,7 +18,7 @@ public class GarageRegulator {
     }
 
     public MySlots[] slotsAvailable(){
-        return garage1.theAvailableSlots();
+        return garage1.getAvailableSlots();
     }
 
     public void creatArrOfSlots(int nSlots){
@@ -43,10 +43,10 @@ public class GarageRegulator {
         int i = garage1.getTotalVehicle();
         return i;
     }
-    
+
     public boolean garageStatus()
     {
-        return garage1.isFull();
+        return garage1.getGarageStatus();
     }
 
 }
