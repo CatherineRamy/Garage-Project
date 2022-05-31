@@ -7,7 +7,9 @@ public class MyScreen {
     private GarageRegulator modulator; //object from the controller class 
     private int nSlots;//number of slots of garage
     private int config_choice;
-    private Scanner input;
+    private int funChoice;
+    public Scanner input= new Scanner(System.in);
+   
     
     public MyScreen() {
         modulator = new GarageRegulator();
@@ -17,7 +19,7 @@ public class MyScreen {
 
     public void setUp(){
         System.out.print("enter the number of slots: ");
-		input = new Scanner(System.in);
+		
         nSlots = input.nextInt();
         modulator.creatArrOfSlots(nSlots);
 		System.out.println("enter the width, depth, ID of the slot");
@@ -73,9 +75,33 @@ public class MyScreen {
     }
 
     public void displayParkOut(){ 
+        
         System.out.print("enter your vehicle ID that you want to park out: " );  
-        String Id = input.next();      
+        String Id = input.next();  
+        if(modulator.carParkOut(Id)==0)   
+        {
+            System.out.println("this car is not in the garage");
+            return;
+        } 
         System.out.println("Fees depending on calculated hours " +modulator.carParkOut(Id));
+    }
+    public void menu()
+    {
+        System.out.println("1- choose garage configuration ");
+        System.out.println("2- setup garage slots ");
+        System.out.println("3- parkin ");
+        System.out.println("4- parkout ");
+        System.out.println("5- see garage available slots");
+        System.out.println("6- see total income ");
+        System.out.println("7- total number of cars used the garage ");
+      
+    
+    }
+    public void userChoice()
+    {
+        System.out.println("choose a number from 1 to 7");
+        funChoice = input.nextInt();
+     
     }
 
 }

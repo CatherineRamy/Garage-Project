@@ -138,17 +138,20 @@ public class MyGarage implements Garage{
 	public int parkOut(String vehicleID) {
 		Vehicle vehicle1;
 		vehicle1=new Car();
+		boolean found=false;
 		for(int i=0;i<garageVehicles.size();i++){
 			if(garageVehicles.get(i).getUniqueId().equals(vehicleID)){
 				vehicle1=garageVehicles.get(i);
-				break;
+				Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
+				vehicle1.setEndtDate(DepartureTime);
+				int vehicleFees = calcFees(vehicle1);
+				found=true;
+				return vehicleFees;
 			}
 		}
-		Date DepartureTime= new Date();//Date is a built in class in java that returns the date and we will use it to save system's time..
-		vehicle1.setEndtDate(DepartureTime);
-		int i = calcFees(vehicle1);
-		return i;
+		return 0;
 	}
+	
 
 	public int calcFees(Vehicle vehicle1){
 		long diff;
