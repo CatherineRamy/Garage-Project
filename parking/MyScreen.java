@@ -46,7 +46,7 @@ public class MyScreen {
   
     public void setupCar(){
         if(modulator.garageStatus())
-        {System.out.println("\nsorry the grage is totally full\n");}
+        {System.out.println("\nsorry the garage is totally full\n");}
         else{
             System.out.print("enter vehicle model : ");
             String modelName = input.next();               
