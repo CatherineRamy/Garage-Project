@@ -16,6 +16,7 @@ public class MyScreen {
     public void open(){
     }
 
+    //to show the menu to the customer
     public void menu(){
         System.out.println("1- parkin ");
         System.out.println("2- parkout ");
@@ -24,11 +25,13 @@ public class MyScreen {
         System.out.println("5- total number of cars used the garage "); 
     }
     
+    // userChoice to get configuration from the customer
     public void userChoice(){
         System.out.println("choose a number from 1 to 5");
         funChoice = input.nextInt();
-     
     }
+
+    //setup to get slots info from the customer 
     public void setUp(){
         System.out.print("enter the number of slots: ");
 		
@@ -43,10 +46,13 @@ public class MyScreen {
 		}
         modulator.createGarage(nSlots, config_choice);
     }
-  
+
+    //setupCar to get car info from the customer   
     public void setupCar(){
-        if(modulator.garageStatus())
-        {System.out.println("\nsorry the garage is totally full\n");}
+        //check if there is at least one available slot in the garage or not to get vehicle info
+        if(modulator.garageStatus()){
+            System.out.println("\n\nsorry the garage is totally full\n\n");
+        }
         else{
             System.out.print("enter vehicle model : ");
             String modelName = input.next();               
@@ -60,24 +66,27 @@ public class MyScreen {
             System.out.print("enter vehicle width, depth: ");
             float vehicleWidth=input.nextFloat();
             float vehicleDepth=input.nextFloat();
+
+            //check if there is an available slot in the garage for this vehicle or not
             String ID=modulator.createVehicle(modelName, modelYear, uniqueID,vehicleWidth,vehicleDepth);
-            if(ID!="")
-            {
+            if(ID!=""){
                 System.out.println("\n\nGo to Slot '"+ID+"'\n\n");
             }
             else{
-                System.out.println("\n\nSorry! The garage has no available slots for your car\n\n");}
+                System.out.println("\n\nSorry! The garage has no available slots for your car\n\n");
+            }
         }
     }
 
+    //chooseConfiguration to get Configuration from the customer   
     public void chooseConfiguration(){
         System.out.print("\nchoose one of the following configurations for parking (1) first come first (2) best fit: ");
 		config_choice = input.nextInt();
     }
     
+    //displayAvailableSlots to show available slots to the customer
     public void displayAvailableSlots(){
-        if(modulator.slotsAvailable()==null)
-        {
+        if(modulator.slotsAvailable()==null){
             System.out.println("no available Slots\n");
         }
         else{
@@ -88,6 +97,7 @@ public class MyScreen {
         }
     }
 
+    //displayTotalIncome to show total income to the customer
     public void displayTotalIncome(){
         System.out.println("\n\ntotal income= " +modulator.totalIncome()+"\n\n");		
     }
@@ -95,19 +105,19 @@ public class MyScreen {
         System.out.println("\n\ntotal vehicles= " +modulator.totalVehicle()+"\n\n");				
     }
 
+    //displayParkOut to show fees to the customer
     public void displayParkOut(){ 
         System.out.print("enter your vehicle ID that you want to park out: " );  
         String Id = input.next();  
         int i=modulator.carParkOut(Id);
         if(i==0){
-            System.out.println("\nthis car is not in the garage\n");
+            System.out.println("\n\nthis car is not in the garage\n\n");
             return;
         } 
         System.out.println("\n\nFees depending on calculated hours: " +i+" EGP\n\n");
     }
     
-    public int getFunChoice()
-    {
+    public int getFunChoice(){
         return funChoice;
     }
 
