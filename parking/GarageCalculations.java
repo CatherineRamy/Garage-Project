@@ -5,8 +5,7 @@ import static java.lang.Math.toIntExact;
 public class GarageCalculations {
 	private int vehicleCount;
 	private int totalIncome;
-    public GarageCalculations()
-    {
+    public GarageCalculations() {
         vehicleCount=0;
         totalIncome=0;
     }

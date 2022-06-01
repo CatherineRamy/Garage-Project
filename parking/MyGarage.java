@@ -5,55 +5,54 @@ import java.util.*;
 
 
 public class MyGarage implements Garage {
-	private int capacity, OwnerChoice;
-	private MySlots[] garageSlots;
-	private Vector<Vehicle> garageVehicles;
-	private GarageCalculations calculations;
+	private int capacity, OwnerChoice;  //number of slots in the garage, configuration choice
+	private MySlots[] garageSlots;      //array of slots to store garage slots
+	private Vector<Vehicle> garageVehicles; //vector to store vehicle parked in the garage 
+	private GarageCalculations calculations;  
 	private Configuration myconfig;
 
 	public MyGarage(int _capacity, MySlots[] s, int choice) {
-		capacity = _capacity;
-		OwnerChoice = choice;
+		capacity = _capacity; 
+		OwnerChoice = choice; 
 		garageVehicles = new Vector<Vehicle>();
 		calculations= new GarageCalculations();
 		garageSlots = new MySlots[capacity];
 		for (int i = 0; i < capacity; i++) {
 			garageSlots[i] = new MySlots(s[i].getwidth(), s[i].getdepth(), s[i].getId());
-			
 		}
+		//polymorphism to set one type of two types of configuration
 		if (OwnerChoice == 1) { // the configuration of first come first in..
 			myconfig=new FirstCome();
 		}
-		else if (OwnerChoice==2) {
+		else{   // the configuration of best fit
 			myconfig=new BestFit();
-			// the configuration of best fit
-			
 		}
-
 	}
 
 	public String parkIn(Vehicle vehicle1) {
-		String ID=myconfig.parking(this,garageSlots ,vehicle1);;
-		if (!getGarageStatus()&&ID!="") {//// there are still available slots in the garage...
-			calculations.incrementVehicleCount();
-			vehicle1.setMySlot(ID);// to assign a specific slot to the entered vehicle acording to itsdimentions..
-			Date arrivalDate = new Date();// Date is a built in class in java that returns the date and we will use it to save system's time..
-			vehicle1.setStartDate(arrivalDate);
-			garageVehicles.add(vehicle1);
+		String ID = myconfig.parking(this ,garageSlots ,vehicle1);
+		if(!getGarageStatus() && ID != "") {//check if there are available slots in the garage and if there is available slot to this vehicle to park in 
+			calculations.incrementVehicleCount(); //increment total vehicles after this vehicle parked in			
+			vehicle1.setMySlot(ID); //to assign a specific slot to the entered vehicle acording to itsdimentions
+			Date arrivalDate = new Date();  //Date is a built in class in java that returns the date and we will use it to save system's time
+			vehicle1.setStartDate(arrivalDate); //set arrival date in vehicle info 
+			garageVehicles.add(vehicle1); // set this vehicle in garageVehicles untile leave 
 		}
 		return ID;
 	}
 
+	//park out function get vehicle id as parameter to park out specific vehicle
 	public int parkOut(String vehicleID) {
-		int vehicleFees = 0;
-		for (int i = 0; i < garageVehicles.size(); i++) {
+		int vehicleFees = 0; //to return fees when the vehicle driver decided to leave (if the vehicle is not in the garage return fees = 0)
+		//loop to check if this vehicle park in the garage now or not 
+		for (int i = 0; i < garageVehicles.size(); i++) { 
 			if (garageVehicles.get(i).getUniqueId().equals(vehicleID)) {
-				Date DepartureTime = new Date();// Date is a built in class in java that returns the date and we will use it to save system's time..
+				Date DepartureTime = new Date();// Date is a built in class in java that returns the date and we will use it to save Departure time
 				garageVehicles.get(i).setEndtDate(DepartureTime);
-				vehicleFees = calculations.calcFees(garageVehicles.get(i));
-				for (int j = 0; j < capacity; j++) {
-					if (garageSlots[j].getId().equals(garageVehicles.get(i).getMySlot()))
-					{
+				vehicleFees = calculations.calcFees(garageVehicles.get(i)); 
+				for (int j = 0; j < capacity; j++) { 
+					//to set the status of slot false to be available to park in another vehicle
+					if (garageSlots[j].getId().equals(garageVehicles.get(i).getMySlot())) {
 						garageSlots[j].setStatus(false);
 					}
 				}
@@ -76,11 +75,10 @@ public class MyGarage implements Garage {
 	public MySlots[] getAvailableSlots() {
 		int counter = 0; // counter to check if there are available slots..
 
-		for (int i = 0; i < capacity; i++) {// loop to check the state of each slot and display the available ones..
+		for (int i = 0; i < capacity; i++) {// loop to count available slots in the garage
 			if (!garageSlots[i].getStatus()) {
 				counter = counter + 1;
 			}
-
 		}
 		int totalAvailable = 0;
 		MySlots[] availableSlots;
@@ -91,8 +89,7 @@ public class MyGarage implements Garage {
 				totalAvailable++;
 			}
 		}
-		if (counter == 0) {/// displaing message to say that there are no available slots..
-			// System.out.println("There is no available slots");
+		if (counter == 0) {
 			return null;
 		}
 		return availableSlots;
