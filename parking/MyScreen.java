@@ -18,8 +18,8 @@ public class MyScreen {
 
     //to show the menu to the customer
     public void menu(){
-        System.out.println("1- parkin ");
-        System.out.println("2- parkout ");
+        System.out.println("1- park in ");
+        System.out.println("2- park out ");
         System.out.println("3- see garage available slots");
         System.out.println("4- see total income ");
         System.out.println("5- total number of cars used the garage "); 
@@ -99,10 +99,10 @@ public class MyScreen {
 
     //displayTotalIncome to show total income to the customer
     public void displayTotalIncome(){
-        System.out.println("\n\ntotal income= " +modulator.totalIncome()+"\n\n");		
+        System.out.println("\n\ntotal income = " +modulator.totalIncome()+"\n\n");		
     }
     public void displayTotalVehicles(){
-        System.out.println("\n\ntotal vehicles= " +modulator.totalVehicle()+"\n\n");				
+        System.out.println("\n\ntotal vehicles = " +modulator.totalVehicle()+"\n\n");				
     }
 
     //displayParkOut to show fees to the customer
