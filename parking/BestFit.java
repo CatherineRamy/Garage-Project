@@ -1,9 +1,8 @@
 package parking;
 
-public class BestFit implements Configuration {
+public class BestFit extends Configuration {
 
     public String parking(Garage garage2, MySlots[] garageSlots, Vehicle parkInVehicle) {
-        String ID = "";
         // sorting function to sort the slots according to thier width value..
         for (int i = 0; i < garage2.getCapacity(); i++) {
             for (int j = i + 1; j < garage2.getCapacity(); j++) {

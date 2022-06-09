@@ -1,9 +1,9 @@
 package parking;
 
-public class FirstCome implements Configuration {
+public class FirstCome extends Configuration {
 
     public String parking(Garage garage2, MySlots[] garageSlots, Vehicle parkInVehicle){
-        String ID = "";
+        
         for (int i = 0; i < garage2.getCapacity(); i++) {// loop to get first available and suitable slot
             if (!garage2.getSlots(i).getStatus())// this means that the slot is empty
             {
