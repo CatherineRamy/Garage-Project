@@ -13,10 +13,10 @@ There are 5 main functions required in our project:
 ## Steps:
 
 ### first step:
-We started asking our customer *TA* some points to clarify the requirements function, this is the first main goal in the first step
-The second main goal is to show the customer some unwanted functions and he chooses whether he wants to fix them or not
-The third main goal we started to draw a use case model using UML.
-All these are in the Software Requirements Specification (SRS) 👉 <a href="">SRS file</a>
+We started asking our customer "*TA*" some questions to clarify the requirements function, this is the first main goal in the first step
+<br>The second main goal is to show the customer some unwanted functions and he chooses whether he wants to fix them or not
+<br>The third main goal we started to draw a use case model using UML.
+<br>All these are in the Software Requirements Specification (SRS) 👉 <a href="\CS251-SoftwareRequirementsSpecifications-SRS-Template-v2.0 (1).docx">SRS file</a>
 <br>
 
 ### second step:
