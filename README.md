@@ -39,5 +39,9 @@ We developped the software application using *Java*.
 ![image](https://user-images.githubusercontent.com/101058082/184784277-2438cc71-ec91-4099-8c76-352d730ce7fa.png) <br>
 ***In this test case, there are four slots in the garage, and the client parked in two vehicles "because this the system display only two available slots"*** <br><br>
 
-![error1](https://user-images.githubusercontent.com/101058082/184786948-919490fe-be60-40ab-9e4e-c7ac4d289759.png) <br>
+![image](https://user-images.githubusercontent.com/101058082/184786948-919490fe-be60-40ab-9e4e-c7ac4d289759.png) <br>
 ***When client enter vehicle's ID there isn't in the garage*** <br><br>
+
+
+![image](https://user-images.githubusercontent.com/101058082/186038983-d7dc64f2-3bfd-48ba-a466-ab96cb62c8b1.PNG) <br>
+***When client wants to choose park in, but the garage is already full*** <br><br>
